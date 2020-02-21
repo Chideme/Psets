@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<table class = "table table-stripped">
+    <thead>
+        <tr>
+            <th>
+                Symbol
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Shares
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Amount
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in rows %}
+        <tr>
+            <td>
+                {{ row["symbol"] }}
+            </td>
+            <td>
+            {{ row["stock_name"] }}
+            </td>
+            <td>
+                {{ row["total"] }}
+            </td>
+            <td>
+                {{ row["price"] }}
+            </td>
+            <td>
+                {{ row["amount"] }}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                CASH
+            </td>
+    <!--EMPTY CELLS -->
+            <td></td><td></td><td>
+            <!-- cash amount -->
+            <td>
+               $ {{  moola }}
+            </td>
+        </tr>
+        <!-- TOTAL ROW -->
+        <tr>
+            <td></td><td></td><td></td><td></td>
+            <td>
+                <b> $ {{ total }}</b>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
