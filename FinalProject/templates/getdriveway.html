@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sales
+{% endblock %}
+
+{% block main %}
+    <form action="/getdriveway" method="post">
+          <div class="form-group">
+            <input  class="form-control" name="date" type="date"/>
+        </div>
+
+
+        <button class="btn btn-lg  btn-outline-primary btn-active" type="submit">Enter</button>
+    </form>
+{% endblock %}

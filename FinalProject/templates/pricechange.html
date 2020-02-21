@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sales
+{% endblock %}
+
+{% block main %}
+    <form action="/pricechange" method="post">
+        <div class="form-row">
+            <div class = "col">
+                 <input  class="form-control" name="date" type="date"/>
+            </div>
+            <div class = "col-md-2">
+                <label class="mr-sm-2 sr-only" for="PriceUpdates"></label>
+                    <select class ="custom-select mr-sm-2" id="PriceUpdates" name = "PriceUpdates">
+                        <option selected>Choose...</option>
+                        <option value ="Diesel">Diesel</option>
+                        <option value ="Petrol">Petrol</option>
+                    </select>
+            </div>
+            <div class ="col-md-2">
+                <div class="input-group mb-2">
+
+                    <input type="number"  step = "0.01" class="form-control" id="SellingPrice" placeholder="Selling Price" name = "SellingPrice" >
+                </div>
+            </div>
+            <div class ="col-md-2">
+                <div class="input-group mb-2">
+                    <input type="number"  step = "0.01" class="form-control" id="Margin" placeholder="Margin" name = "Margin" >
+                </div>
+            </div>
+            <div class = "col-md-2">
+                <div class="input-group mb-2">
+                    <button class="btn btn-lg  btn-outline-primary btn-active" type="submit">Enter</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+{% endblock %}

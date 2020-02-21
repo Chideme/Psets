@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Driveway
+{% endblock %}
+
+{% block main %}
+
+<table border="1" cellpadding="3" id="printTable">
+    <thead>
+        <th>Date</th>
+        <tbody><tr><td>{{ cldate }}</td></tr></tbody>
+    </thead>
+    <thead>
+        <tr>
+            <th>Pump ID</th>
+            <th> Opening Reading</th>
+            <th> Closing Reading</th>
+            <th> Litres Sold</th>
+            <th> Swipe</th>
+            <th>Ecocash</th>
+            <th>Cash</th>
+            <th>Accounts</th>
+            <th>Variance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pump in pumps %}
+        <tr>
+            <td>{{ pump["pumpID"] }}</td>
+            <td>{{ pump["opening_reading"] }}</td>
+            <td>{{ pump["reading"] }}</td>
+            <td>{{ pump["litres_sold"] }}</td>
+            <td>{{ pump["swipe"] }}</td>
+            <td>{{ pump["ecocash"] }}</td>
+            <td>{{ pump["cash"] }}</td>
+        </tr>
+        {% endfor %}
+        <tr><td></td></tr>
+    </tbody>
+    <thead>
+        <th>Product</th><th>Selling Price</th><th>Litres</th><th>Amount</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Diesel </td>
+            <td> {{ dieselprice[0]["selling_price"] }}</td>
+            <td>{{ total_prdct_sales["Diesel"] }} </td>
+            <td>{{ dieselprice[0]["selling_price"] * total_prdct_sales["Diesel"] }}</td>
+        </tr>
+        <tr>
+            <td>Petrol </td>
+
+            <td> {{ petrolprice[0]["selling_price"] }}</td>
+            <td>{{ total_prdct_sales["Petrol"] }} </td>
+            <td>{{ petrolprice[0]["selling_price"] * total_prdct_sales["Petrol"] }}</td>
+        </tr>
+    </tbody>
+    <th> Tanks</th>
+    <thead>
+        <th>TankID</th>
+        <th>Opening Stock</th>
+        <th>Delivery</th>
+        <th>Closing Stock</th>
+        <th>Tank Sales</th>
+        <th>Pump Sales</th>
+        <th>Variance</th>
+    </thead>
+    <tbody>
+        {% for i in tanks %}
+        <tr>
+            <td>{{ i["tankID"] }}</td>
+            <td>{{ i["opening_dip"] }}</td>
+            <td>{{ i["delivery"] }}</td>
+            <td>{{ i["closing_dip"] }}</td>
+            <td>{{ i["sales"] }}</td>
+            <td>{{ i["pumpsales"] }}</td>
+            <td>{{ i["pumpsales"] - i["sales"] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</br>
+<div><button class="btn btn-sm  btn-outline-primary btn-active" id= "printbutton" onclick ="printData()">Print me</button></div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Tank Dips
+{% endblock %}
+
+{% block main %}
+    <form action="/tankdips" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">Enter Tank Dips</h1>
+        <div class="form-group">
+            <input  class="form-control" name="date" type="date"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="tankid" placeholder="Tank Name" type="number"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="dip" placeholder="Dip" type="number"/>
+        </div>
+        <button class="btn btn-lg  btn-outline-primary btn-active" type="submit">Enter</button>
+    </form>
+{% endblock %}

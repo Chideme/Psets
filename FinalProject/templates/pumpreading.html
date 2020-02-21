@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Enter Pump Reading
+{% endblock %}
+
+{% block main  %}
+   <form action="/pumpreading" method="post">
+        <h1 class="h3 mb-3 font-weight-normal">Enter Pump Reading</h1>
+        <div class="form-group">
+            <input  class="form-control" name="date" type="date"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="pumpid" placeholder="Pump" type="text"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="reading" placeholder="Reading (Ltrs)" type="number"/>
+        </div>
+        <button class="btn btn-lg  btn-outline-primary btn-active" type="submit">Enter</button>
+    </form>
+{% endblock %}
